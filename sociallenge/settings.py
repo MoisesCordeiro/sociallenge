@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
+PROJECT_DIR = os.path.realpath( os.path.dirname(__file__) )
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -23,7 +23,9 @@ SECRET_KEY = '%kfpbpq)y*j3bsi3cl@(7l^sut(1=5*6cn^eg_trr4r+bfgssp'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+PROJECT_DIR = os.path.realpath( os.path.dirname(__file__) )
 ALLOWED_HOSTS = []
 
 
@@ -36,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sociallenge.core',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -80,4 +83,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+
+STATIC_ROOT  =   '%s/static' % PROJECT_DIR
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.6/howto/static-files/
+
 STATIC_URL = '/static/'
+
+# Additional locations of static files
+#adicionado fonts ao staticfiles
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    ("images", "%s/images" % STATIC_ROOT),
+    ("img", "%s/img" % STATIC_ROOT),
+    ("css", "%s/css" % STATIC_ROOT),
+    ("js", "%s/js" % STATIC_ROOT),
+    ("fonts", "%s/fonts" % STATIC_ROOT),
+)
+
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+)
