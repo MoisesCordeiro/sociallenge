@@ -7,6 +7,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'sociallenge.core.views.home', name='home'),
+    #url(r'^$', 'sociallenge.core.views.home', name='home'),
+    url(r'^','sociallenge.pessoas.views.pessoa_create', name='pessoa_create'),
     url(r'^pessoas/',include('sociallenge.pessoas.urls', namespace='pessoas')),
 )
