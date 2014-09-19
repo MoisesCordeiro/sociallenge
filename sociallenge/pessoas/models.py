@@ -1,6 +1,6 @@
 #coding: utf-8
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 RELACIONAMENTO = (
@@ -17,5 +17,13 @@ class Pessoa(models.Model):
     nascimento = models.CharField(max_length=10)
     relacionamento = models.CharField(max_length=1,choices=RELACIONAMENTO)
 
+    user = models.OneToOneField(User,related_name='pessoa',null=True,blank=True)
+
+    @models.permalink
+    def inicio(self):
+        return ('pessoas:pessoa_inicio', (), {'pessoa_id': self.id})
+
+    class Meta:
+        unique_together = ('email',)
     def __unicode__(self):
         return unicode(self.nome)
