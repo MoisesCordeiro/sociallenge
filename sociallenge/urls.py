@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'sociallenge.core.views.home', name='home'),
     url(r'^pessoas/',include('sociallenge.pessoas.urls', namespace='pessoas')),
+    url(r'^desafios/',include('sociallenge.desafios.urls', namespace='desafios')),
 )

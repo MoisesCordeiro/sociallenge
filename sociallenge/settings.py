@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'sociallenge.core',
     'sociallenge.pessoas',
+    'sociallenge.desafios',
 )
 
 MIDDLEWARE_CLASSES = (
