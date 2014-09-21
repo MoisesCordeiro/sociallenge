@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{%block content %}
+
+<div class="bs-callout bs-callout-warning">
+  <h4>Listagem Desafios</h4>
+</div>
+
+<a class="btn btn-warning" href="">Novo</a>
+
+<br/><br/>
+<div class="panel-body">
+          <div class="adv-table">
+              <table class="table table-bordered table-striped" id="hidden-table-info">
+                 <thead>
+                <tr>
+                    <th>Editar</th>
+                    <th>Titulo</th>
+                    <th>nivel</th>
+                </tr>
+              </thead>
+              <tbody>
+            {%for s in desafios%}
+                <tr>
+                    <td class="a-table">
+                    <a href="">Editar</a></td>
+                    <td>{{s.titulo}}</td>
+                    <td>{{s.get_nivel_display}}</td>
+                </tr>
+            {%endfor%}
+              
+              </tbody>
+              </table>
+
+          </div>
+    </div>
+
+  <script src="{{ STATIC_URL }}js/jquery.dataTables.js" type="text/javascript" ></script>
+  <script src="{{ STATIC_URL }}js/DT_bootstrap.js" type="text/javascript" ></script>
+
+        <script type="text/javascript">
+          /* Formating function for row details */
+
+         $(document).ready(function() {
+              var oTable = $('#hidden-table-info').dataTable( {
+                  "aoColumnDefs": [
+                      { "bSortable": false, "aTargets": [ 0 ] }
+                  ],
+                  "aaSorting": [[1, 'asc']]
+              });
+
+          } );
+      </script>
+{%endblock%}

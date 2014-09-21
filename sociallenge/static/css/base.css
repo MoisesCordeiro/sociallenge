@@ -81,3 +81,9 @@ input[type="password"]
 {
     height:30px;   
 }
+
+.errorlist
+{
+	width:250;
+	margin-right:30px;
+}
