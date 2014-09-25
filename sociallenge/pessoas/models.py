@@ -10,12 +10,19 @@ RELACIONAMENTO = (
     ('D','Viúvo(a)'),
     )
 
+GENERO = (
+    ('A','Masculino'),
+    ('B','Feminino'),
+    )
+
+
 class Pessoa(models.Model):
     email = models.CharField(max_length=100)
     nome = models.CharField(max_length=100)
     sobrenome = models.CharField(max_length=100)
     nascimento = models.CharField(max_length=10)
     relacionamento = models.CharField(max_length=1,choices=RELACIONAMENTO)
+    genero = models.CharField(max_length=1, choices=GENERO)
 
     user = models.OneToOneField(User,related_name='pessoa',null=True,blank=True)
 

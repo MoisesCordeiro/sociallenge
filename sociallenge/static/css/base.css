@@ -1,60 +1,30 @@
-.menu {
-	background: #fff;
-	position: fixed;
-	width: 200px;
-	height: 100%;
-	top: 0;
-	z-index: 1000;
-}
-
-.menu h5 {
-	color: #000;
-	font-size: 1.9em;
-	padding: 15px;
-	margin: 0;
-	font-weight: 200;
-	background: #A0A0A0 ;
-	border-bottom: 1px solid #140717;
-}
-
-.menu a {
-	display: block;
-	color: #000000;
-	font-size: 1.1em;
-	font-weight: 300;
-	border-bottom: 1px solid #140717;
-	padding: 1em;
-}
-
-.menu a:hover {
-	background: #E8E8E8;
-}
-
-.menu a:active {
-	background: #afdefa;
-	color: #47a3da;
-}
-
-
+@charset "UTF-8";
 body
 {
-    background-color:#F0F0F0;
-    color:Black;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CCCCCC)) no-repeat;
+            background: -moz-linear-gradient(top, #CCCCCC, #000000);
+            filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#FFFFFF', EndColorStr='#CCCCCC');           
+        }
+
+.container header img
+{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 500px;
 }
 
-.container
+.container header p
 {
-    width:100%;
+    position: absolute;
+    top: 170px;
+    left: 50px;
+    font-size: 18px;
+    text-align: center;
+    font-family: Microsoft, Sans Serif;
+    color: #023095;
 }
-.container header
-{
-    margin-left:200px;
-    height: 50px;
-}
-.container header h3
-{
-	margin-top:-35px;
-}
+
 #box
 {
     margin-left:220px;
@@ -71,7 +41,11 @@ body
     padding-right: 1.2em;
     border-radius: 0.3em;
     box-shadow: 0px 1px 3px #CCC;
-    width:700px;
+    width:361px;
+    height: 361px;
+    position: absolute;
+    left: 500px;
+    top: 90px;
 }
 
 input[type="text"],

@@ -10,4 +10,4 @@ from django.contrib import admin
 class PessoaForm(forms.ModelForm):
     class Meta:
         model = Pessoa
-        fields = ('email','nome','sobrenome','nascimento','relacionamento',)
+        fields = ('email','nome','sobrenome','nascimento','relacionamento','genero')
