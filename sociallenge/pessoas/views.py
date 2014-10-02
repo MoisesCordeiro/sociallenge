@@ -32,7 +32,8 @@ def pessoa_create_post(request):
     else:
         return render(request,"login.html",{'form':form})
 
-def pessoa_inicio(request,pessoa_id):
+def pagina_inicial(request):
     '''
         @pessoa_inicio: View para renderizar a página inicial de uma pessoa
     '''
+    return render(request,"pagina_inicial.html")

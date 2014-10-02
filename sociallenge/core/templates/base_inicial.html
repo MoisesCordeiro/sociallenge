@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>SocialLenge</title>
+
+    <script src="{{ STATIC_URL }}js/jquery-latest.min.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery-2.0.0.min.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>        
+    <script src="{{ STATIC_URL }}js/jquery-ui-1.10.2.min.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-datepicker.js"></script>
+    <script src="{{ STATIC_URL }}js/locales/bootstrap-datepicker.pt-BR.js"></script>
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link href="{{ STATIC_URL }}css/default.css" rel="stylesheet" type="text/css"  />
+    <link href="{{ STATIC_URL }}css/form_padrao.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/base.css" />
+    <link href="{{ STATIC_URL }}css/datepicker.css" rel="stylesheet" type="text/css"  />
+
+</head>
+<body>
+   
+    <div id="box-inicio">
+        {%block content%}
+		{%endblock%}	
+    </div>
+
+
+</html>

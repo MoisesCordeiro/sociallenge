@@ -2,21 +2,31 @@
 
 {%block content %}
 
-<div class="bs-callout bs-callout-warning">
-  <h4>Login</h4>
-</div>
+
+<form class="form-horizontal form" method="post" enctype="multipart/form-data">    
+	{%csrf_token%}
+	<p>{{form.username.label}} : {{form.username}}</p>
+	<p>{{form.password.label}} : {{form.password}}</p> 
+
+	<div class="buttons" id="login">
+		<center><button class="btn btn-default  btn-login" type="submit" id="button">Entrar</button></center>
+	</div>
+ </form>
+
 <form class="form-inline" method="POST" >
 	{% csrf_token %}		
 	{{form.non_field_errors}}	
-	<p><label>{{form.email.label}} :</label>{{form.email}}{{form.email.errors}}</p>
+	
 	<p><label>{{form.nome.label}} :</label>{{form.nome}}{{form.nome.errors}}</p>
 	<p><label>{{form.sobrenome.label}} :</label>{{form.sobrenome}}</p>{{form.sobrenome.errors}}
+	<p><label>{{form.email.label}} :</label>{{form.email}}{{form.email.errors}}</p>
+	<p><label>Senha :</label><input type="password" id="pass" name="pass"></p>
 	<p><label>{{form.nascimento.label}} :</label>{{form.nascimento}}</p>{{form.nascimento.errors}}
 	<p><label>{{form.relacionamento.label}} :</label>{{form.relacionamento}}</p>{{form.relacionamento.errors}}
 	<p><label>{{form.genero.label}} :</label>{{form.genero}}</p>{{form.genero.errors}}
-	<p><label>Senha :</label><input type="password" id="pass" name="pass"></p>
 	<p><button type="submit" class="btn btn-success">Salvar</button></p>
 </form>	
+
 
 
 {%endblock%}

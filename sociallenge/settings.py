@@ -57,6 +57,9 @@ ROOT_URLCONF = 'sociallenge.urls'
 
 WSGI_APPLICATION = 'sociallenge.wsgi.application'
 
+LOGIN_URL = "/login/"
+LOGOUT_URL = "/logout"
+LOGIN_REDIRECT_URL = "/inicio/"
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases

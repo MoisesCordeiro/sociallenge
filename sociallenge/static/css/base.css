@@ -1,9 +1,9 @@
 @charset "UTF-8";
 body
 {
-    background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CCCCCC)) no-repeat;
-            background: -moz-linear-gradient(top, #CCCCCC, #000000);
-            filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#FFFFFF', EndColorStr='#CCCCCC');           
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#E6E6E6)) no-repeat;
+            background: -moz-linear-gradient(top, #FFFFFF, #E6E6E6);
+            filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#FFFFFF', EndColorStr='#E6E6E6');           
         }
 
 .container header img
@@ -20,9 +20,33 @@ body
     top: 170px;
     left: 50px;
     font-size: 18px;
-    text-align: center;
-    font-family: Microsoft, Sans Serif;
+    text-align: justify;
+    text-indent: 40px;
+    font-family: Microsoft, Sans Serif ;
     color: #023095;
+
+}
+
+#cadgratu p {
+	font-size: 30px;
+	position: absolute;
+	left: 500px;
+	top: 170px;
+	margin-left:200px;
+	color: gray;
+}
+
+#institucional p {
+	position: absolute;
+	top: 240px;
+	left: 200px;
+	font-size: 12pt;
+	
+}
+
+#institucional p:hover {
+	text-decoration: underline;
+	color: blue;
 }
 
 #box
@@ -42,10 +66,25 @@ body
     border-radius: 0.3em;
     box-shadow: 0px 1px 3px #CCC;
     width:361px;
-    height: 361px;
+    height: 461px;
     position: absolute;
     left: 500px;
-    top: 90px;
+    top: 200px;
+}
+#box-inicioa
+{
+    margin-bottom: 2em;
+    border: 1px solid #DDD;
+    background-color: #FFF;
+    padding-top: 1.2em;
+    padding-bottom: 1.2em;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    border-radius: 0.3em;
+    box-shadow: 0px 1px 3px #CCC;
+    width:1000px;
+    height: 500px;
+    position: absolute;
 }
 
 input[type="text"],
@@ -53,7 +92,7 @@ input[type="email"],
 input[type="number"],
 input[type="password"]
 {
-    height:30px;   
+    height:30px;
 }
 
 .errorlist
