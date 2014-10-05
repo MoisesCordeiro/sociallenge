@@ -58,7 +58,7 @@ ROOT_URLCONF = 'sociallenge.urls'
 WSGI_APPLICATION = 'sociallenge.wsgi.application'
 
 LOGIN_URL = "/login/"
-LOGOUT_URL = "/logout"
+LOGOUT_URL = "/logout/"
 LOGIN_REDIRECT_URL = "/inicio/"
 
 # Database
@@ -112,3 +112,5 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )
+
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',) 

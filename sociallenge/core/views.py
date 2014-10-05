@@ -1,8 +1,10 @@
 #coding:utf-8
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.forms import AuthenticationForm
+from sociallenge.pessoas.forms import PessoaForm,LoginForm,UserForm
 # Create your views here.
 
 def home(request):
-	return HttpResponseRedirect("/pessoas/")
+	return render(request,"base.html",{'form':PessoaForm(),'lform':LoginForm(),'uform':UserForm})
 	

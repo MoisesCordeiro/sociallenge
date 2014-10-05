@@ -21,8 +21,8 @@ class Pessoa(models.Model):
     nome = models.CharField(max_length=100)
     sobrenome = models.CharField(max_length=100)
     nascimento = models.CharField(max_length=10)
-    relacionamento = models.CharField(max_length=1,choices=RELACIONAMENTO)
-    genero = models.CharField(max_length=1, choices=GENERO)
+    relacionamento = models.CharField(max_length=1,default='A',choices=RELACIONAMENTO)
+    genero = models.CharField(max_length=1,default='A',choices=GENERO)
 
     user = models.OneToOneField(User,related_name='pessoa',null=True,blank=True)
 
