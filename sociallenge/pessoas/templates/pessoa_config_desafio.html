@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>SocialLenge</title>
+
+    <script src="{{ STATIC_URL }}js/jquery-latest.min.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery-2.0.0.min.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>        
+    <script src="{{ STATIC_URL }}js/jquery-ui-1.10.2.min.js"></script>
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css"  />
+    <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css"  />
+    <link href="{{ STATIC_URL }}css/base_config.css" rel="stylesheet" type="text/css"  />
+    <link href="{{ STATIC_URL }}css/reseteblobal.css" rel="stylesheet" type="text/css"  />
+
+</head>
+<body>
+    <div id="centro">
+        <div id="div-topo">
+            <img id="barra-topo" src= "{{STATIC_URL}}img/barra-topo-2.png"/>
+            <div id="topo-logo">
+                <img id="logo" src= "{{STATIC_URL}}img/logo2.png"/>    
+            </div>
+        </div>
+        <div id="centro-config">
+            <div id="div-foto">
+                <a href="">
+                    <img id="foto-perfil" src= "{{STATIC_URL}}img/icon_pic.png"/>
+                    <center><h5>Carregar imagem</h5></center>
+                </a>
+            </div>
+            <div id="div-desafios">
+                
+                <center><h5>Intervalo entre os desafios</h5></center>
+            </div>
+        </div>
+
+        <br/><br/><br/><br/><br/><br/><br/>
+        <a href="/logout/" class="btn btn-danger" title="Clique aqui para Sair do Sistema"><i class="fa fa-sign-out fa-lg"></i>&nbsp;Sair</a>
+    </div>
+
+</body>
+</html>

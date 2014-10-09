@@ -7,5 +7,6 @@ urlpatterns = patterns('sociallenge.pessoas.views',
 
 	url(r'^$','pessoa_create', name='pessoa_create'),
 	url(r'^inicio/$', 'pessoa_inicio', name='pessoa_inicio'),
+	url(r'^config/$', 'pessoa_config', name='pessoa_config'),
 	url(r'^logar/$', 'logar', name='logar'),
 )

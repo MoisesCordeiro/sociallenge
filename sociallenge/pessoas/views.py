@@ -46,15 +46,21 @@ def pessoa_inicio(request):
     '''
     return render(request,"pagina_inicial.html")
 
+def pessoa_config(request):
+    '''
+        @pessoa_config: View para renderizar a página de configuração da pessoa
+    '''
+    return render(request,"pessoa_config_desafio.html")
 
 def logar(request):
     if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST) # Veja a documentacao desta funcao
-        
+        form = AuthenticationForm(data=request.POST)
         if form.is_valid():
-            #se o formulario for valido significa que o Django conseguiu encontrar o usuario no banco de dados
-            #agora, basta logar o usuario e ser feliz.
             login(request, form.get_user())
-            return HttpResponseRedirect(r("pessoas:pessoa_inicio")) # redireciona o usuario logado para a pagina inicial
+
+            #verificar se a pessoa já fez as configuracoes
+            
+            #return HttpResponseRedirect(r("pessoas:pessoa_inicio"))
+            return HttpResponseRedirect(r("pessoas:pessoa_config"))
         else:
             return render(request, "login.html", {'"lform': form,'form':PessoaForm(),'uform':UserForm})

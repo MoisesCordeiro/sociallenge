@@ -1,0 +1,80 @@
+body
+{
+	background-color:#336666;
+}
+
+#div-foto h5
+{
+	color:#999999;
+	font-size:16px;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:hover
+{
+	text-decoration: none;
+}
+
+@media screen and (max-width: 1400px) { 
+
+  	#centro-config
+	{
+		width:397px;
+		height: 431px;
+		background-color: #F5F5F5;
+		border-radius:30px;
+		margin:auto;
+		margin-top:50px;
+		padding-top:1px;
+	}
+	#div-foto
+	{
+		margin:auto;
+		width:150px;
+	}
+	#foto-perfil
+	{
+		width:150px;
+		margin:auto;
+		margin-top:10px;
+	}
+} 
+
+
+@media screen and (min-width: 1500px){ 
+  	#centro-config
+	{
+		width:420px;
+		height:471px;
+		background-color: #F5F5F5;
+		border-radius:30px;
+		margin:auto;
+		margin-top:50px;
+		padding-top: 1px;
+	}
+	#div-foto
+	{
+		margin:auto;
+		width:180px;
+	}
+
+	#foto-perfil
+	{
+		width:180px;
+		margin:auto;
+		margin-top:10px;
+	}
+}
+
+#div-desafios
+{
+	height: 80px;
+	background-color: #FFFFFF;
+}
+#div-desafios h5
+{
+	padding-top: 10px;
+	color:#336666;
+	font-size:16px;
+	text-decoration: none;
+}

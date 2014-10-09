@@ -28,6 +28,7 @@ font-family: 'Lato', Calibri, Arial, sans-serif;
 #barra-topo
 {
     z-index: -1;
+    width:100%;
 }
 #topo-logo
 {

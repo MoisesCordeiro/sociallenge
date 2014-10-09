@@ -15,4 +15,7 @@ urlpatterns = patterns('',
 
     url(r'^desafios/',include('sociallenge.desafios.urls', namespace='desafios')),
     url(r'^pessoas/',include('sociallenge.pessoas.urls', namespace='pessoas')),
+
+    url(r'^politica_privacidade/$', 'sociallenge.core.views.politica_privacidade', name='politica_privacidade'),
+    url(r'^termos_condicoes/$', 'sociallenge.core.views.termos_condicoes', name='termos_condicoes'),
 )

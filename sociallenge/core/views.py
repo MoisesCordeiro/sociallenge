@@ -8,3 +8,10 @@ from sociallenge.pessoas.forms import PessoaForm,LoginForm,UserForm
 def home(request):
 	return render(request,"base.html",{'form':PessoaForm(),'lform':LoginForm(),'uform':UserForm})
 	
+
+def termos_condicoes(request):
+	return render(request,"termos_e_condicoes.html")
+
+
+def politica_privacidade(request):
+	return render(request,"politica_de_privacidade.html")
