@@ -1,0 +1,13 @@
+Uma pessoa pode fazer vários desafios, e um desafio pode ser feito por várias pessoas.
+
+Quando um desafio é direcionado para uma pessoa, deve ser dito se ela fez o desafio ou não.
+	Compartilhar detalhes do desafio
+	Direcionar o desafio para mais pessoas
+
+	A pessoa poderá escolher até 5 amigos para encaminhar o desafio.
+	Deverá existir um bloqueio para que uma pessoa não receba o mesmo desafio de duas pessoas
+	ou que várias pessoas não enviem vários desafios para uma mesma pessoa.
+	Uma pessoa poderá receber até 5 desafios
+	"Número de desafios por vez nas configuracoes da pessoa" ????? (a ser discutido)
+
+	
