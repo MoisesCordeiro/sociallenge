@@ -34,3 +34,16 @@ class Pessoa(models.Model):
         unique_together = ('email',)
     def __unicode__(self):
         return unicode(self.nome)
+
+INTERVALO = (
+    ('1','1 dia'),
+    ('2','2 dias'),
+    ('3','3 dias'),
+    ('4','4 dias'),
+    ('5','5 dias'),
+)
+
+class ConfigPessoa(models.Model):
+    caminho_foto = models.CharField(max_length=100,null=True,blank=True)
+    intervalo = models.CharField(max_length=1,choices=INTERVALO)
+    pessoa = models.ForeignKey(Pessoa,null=True,blank=True)

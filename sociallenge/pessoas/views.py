@@ -36,7 +36,7 @@ def pessoa_create_post(request):
         obj.save()
         user = authenticate(username=user.username,password=request.POST['password1'])
         login(request, user)
-        return HttpResponseRedirect(r('pessoas:pessoa_inicio'))
+        return HttpResponseRedirect(r('pessoas:pessoa_config'))
     else:
         return render(request,"login.html",{'form':form,'lform':LoginForm(),'uform':uform})
 
@@ -53,14 +53,23 @@ def pessoa_config(request):
     return render(request,"pessoa_config_desafio.html")
 
 def logar(request):
+    #raise Exception("teste")
     if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
+
+        form = AuthenticationForm(request.POST)
         if form.is_valid():
+            raise Exception("oi")
             login(request, form.get_user())
 
             #verificar se a pessoa já fez as configuracoes
             
+
+
+
             #return HttpResponseRedirect(r("pessoas:pessoa_inicio"))
+
             return HttpResponseRedirect(r("pessoas:pessoa_config"))
         else:
-            return render(request, "login.html", {'"lform': form,'form':PessoaForm(),'uform':UserForm})
+            return render(request, "login.html", {'"lform': form,'form':PessoaForm(),'uform':UserForm()})
+    else:
+        raise Exception("sei la")
