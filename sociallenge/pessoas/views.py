@@ -44,7 +44,10 @@ def pessoa_inicio(request):
     '''
         @pessoa_inicio: View para renderizar a página inicial de uma pessoa
     '''
-    return render(request,"pagina_inicial.html")
+    if request.user.pessoa:
+        return render(request,"pagina_inicial.html")
+    else:
+        return HttpResponseRedirect("/")
 
 def pessoa_config(request):
     '''
@@ -56,16 +59,12 @@ def logar(request):
     #raise Exception("teste")
     if request.method == 'POST':
 
-        form = AuthenticationForm(request.POST)
+        form = AuthenticationForm(data=request.POST)
         if form.is_valid():
-            raise Exception("oi")
+
             login(request, form.get_user())
 
             #verificar se a pessoa já fez as configuracoes
-            
-
-
-
             #return HttpResponseRedirect(r("pessoas:pessoa_inicio"))
 
             return HttpResponseRedirect(r("pessoas:pessoa_config"))

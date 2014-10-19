@@ -6,7 +6,7 @@ from sociallenge.pessoas.forms import PessoaForm,LoginForm,UserForm
 # Create your views here.
 
 def home(request):
-	return render(request,"base.html",{'form':PessoaForm(),'lform':LoginForm(),'uform':UserForm})
+	return render(request,"base.html",{'form':PessoaForm(),'lform':AuthenticationForm(),'uform':UserForm})
 	
 
 def termos_condicoes(request):

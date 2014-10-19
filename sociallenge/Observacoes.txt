@@ -11,3 +11,31 @@ Quando um desafio é direcionado para uma pessoa, deve ser dito se ela fez o des
 	"Número de desafios por vez nas configuracoes da pessoa" ????? (a ser discutido)
 
 	
+
+
+a questão da empresa
+
+form configuracao da pessoa
+
+
+
+sociallenge faça interação pra um desafio que seja enviado para uma pessoa
+
+
+e a empresa ela vai ser "co participante" quando o desafio for relacionado a enviar alguma coisa para alguma entidade/órgão caridade
+
+
+sociallenge desafio -> pessoas
+
+empresa destina brinquedos que serão entregues pela empresa 
+
+
+-----------------------------------------------------------
+
+Nas configurações da pessoa, ela irá definir se deseja receber desafios de impacto social, caso sim, ela irá cadastrar o endereço.
+
+A pessoa terá uma listagem de desafios pré definidos, quando estiver perto dela receber um desafio de impacto social, uma empresa que receberá o nome da pessoa, irá enviar o item/produto para a pessoa e ela receberá no endereço informado o item enviado pela empresa indicando o próximo desafio
+
+
+
+
