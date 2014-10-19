@@ -1,9 +1,9 @@
 # coding: utf-8
 
 from django import forms
-from sociallenge.pessoas.models import Pessoa
+from sociallenge.pessoas.models import Pessoa,ConfigPessoa
 from django.core.exceptions import ValidationError
-from django.forms.widgets import Select
+from django.forms.widgets import Select,RadioSelect
 from django.contrib import admin
 
 
@@ -19,6 +19,29 @@ class PessoaForm(forms.ModelForm):
                   'relacionamento' 	: Select(attrs={'class':'form-control',}),
                   'genero' : Select(attrs={'class':'form-control'}),
         }
+
+class PessoaEnderecoForm(forms.ModelForm):
+    class Meta:
+        model = Pessoa
+        fields = ('cep','endereco','numero','complemento','bairro','cidade','estado',)
+        widgets ={
+                  'cep'         : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Nome:'}),
+                  'endereco'    : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Sobrenome:'}),
+                  'numero'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Email:'}),
+                  'complemento' : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Nascimento:'}),
+                  'bairro'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Sobrenome:'}),
+                  'cidade'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Email:'}),
+                  'estado'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Nascimento:'}),
+
+
+        }
+
+
+
+
+
+
+
 
 
 class LoginForm(forms.Form):
@@ -40,3 +63,12 @@ class UserForm(forms.Form):
         if password1 != password2:
             raise forms.ValidationError("As senha estão diferentes")
         return password2
+
+class ConfigPessoaForm(forms.ModelForm):
+    class Meta:
+        model = ConfigPessoa
+        fields = ('intervalo','impacto_social',)
+        widgets = {
+            'intervalo'         : RadioSelect(attrs={'class':'form-control form-inline'}),
+            'impacto_social'    : RadioSelect(attrs={'class':'form-control form-inline'}),
+        }

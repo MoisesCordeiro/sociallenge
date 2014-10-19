@@ -7,15 +7,52 @@
     <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>        
     <script src="{{ STATIC_URL }}js/jquery-ui-1.10.2.min.js"></script>
     
+   <!-- <script src="{{ STATIC_URL }}js/jquery-latest.min.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery-2.0.0.min.js"></script>
+    
+    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-datepicker.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-datepicker.pt-BR.js"></script>-->
+
+
+
+
+
+
+
     <link rel="shortcut icon" href="../favicon.ico">
     <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css"  />
     <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css"  />
     <link href="{{ STATIC_URL }}css/base_config.css" rel="stylesheet" type="text/css"  />
-    <link href="{{ STATIC_URL }}css/reseteblobal.css" rel="stylesheet" type="text/css"  />
+    
 
 </head>
 <body>
+      <script type="text/javascript">
+        $(document).ready(
+            
+                        
+            function(){
+
+                $('#id_impacto_social_0').on( 'click', function( e ){
+
+                    e.preventDefault();
+                    var url_locais = "{% url 'pessoas:endereco_form_modal' %}";
+                    $('#modal-cadastro_endereco').load( url_locais, function( e ){
+                        $('#modal-cadastro_endereco').modal( 'show' );
+                    });
+
+                });
+
+            });
+        </script>
+
+
+
+<div id="modal-cadastro_endereco" class="modal fade" role="dialog"  aria-hidden="true"></div>
+
     <div id="centro">
+
         <div id="div-topo">
             <img id="barra-topo" src= "{{STATIC_URL}}img/barra-topo-2.png"/>
             <div id="topo-logo">
@@ -23,16 +60,30 @@
             </div>
         </div>
         <div id="centro-config">
-            <div id="div-foto">
-                <a href="">
-                    <img id="foto-perfil" src= "{{STATIC_URL}}img/icon_pic.png"/>
-                    <center><h5>Carregar imagem</h5></center>
-                </a>
-            </div>
-            <div id="div-desafios">
+            <form class="form-inline" method="POST">
+                {% csrf_token %}        
+                {{form.non_field_errors}}
+
+                <div id="div-foto">
+                    <a href="">
+                        <img id="foto-perfil" src= "{{STATIC_URL}}img/icon_pic.png"/>
+                        <center><h5>Carregar imagem</h5></center>
+                    </a>
+                </div>
                 
-                <center><h5>Intervalo entre os desafios</h5></center>
-            </div>
+                <div id="div-desafios">
+                    <center><h5>Escolha o intervalo entre os desafios</h5></center>
+                    <center>{{form.intervalo}}{{form.intervalo.errors}}</center>
+                </div>
+
+                <div id="div-impacto">
+                    <center><h5>Participar de impacto social?</h5></center>
+                    <center>{{form.impacto_social}}{{form.impacto_social.errors}}</center>
+                </div>
+                <div id="rodape" class="modal-footer">
+                    <center><button id="btn-salvar" type="submit" class="btn btn_login">Salvar</button></center>
+                </div>
+            </form> 
         </div>
 
         <br/><br/><br/><br/><br/><br/><br/>

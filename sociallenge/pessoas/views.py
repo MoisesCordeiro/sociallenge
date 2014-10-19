@@ -2,8 +2,8 @@
 
 from django.shortcuts import render
 from django.http import HttpResponseRedirect,HttpResponse
-from sociallenge.pessoas.forms import PessoaForm,UserForm,LoginForm
-from sociallenge.pessoas.models import Pessoa
+from sociallenge.pessoas.forms import PessoaForm,PessoaEnderecoForm,UserForm,LoginForm,ConfigPessoaForm
+from sociallenge.pessoas.models import Pessoa,ConfigPessoa
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.core.urlresolvers import reverse as r
@@ -40,6 +40,13 @@ def pessoa_create_post(request):
     else:
         return render(request,"login.html",{'form':form,'lform':LoginForm(),'uform':uform})
 
+def endereco_form_modal(request):
+    '''
+        @endereco_form_modal: View para salvar o endereço da pessoa
+    '''
+    form = PessoaEnderecoForm()
+    return render(request,"pessoa_endereco_modal.html",{'form':form})
+
 def pessoa_inicio(request):
     '''
         @pessoa_inicio: View para renderizar a página inicial de uma pessoa
@@ -53,8 +60,26 @@ def pessoa_config(request):
     '''
         @pessoa_config: View para renderizar a página de configuração da pessoa
     '''
-    return render(request,"pessoa_config_desafio.html")
+    if request.method == 'POST':
+        return pessoa_config_post(request)
+    else:
+        form = ConfigPessoaForm()
+        eForm = PessoaEnderecoForm()
+        return render(request,"pessoa_config_desafio.html",{'form':form,'eForm':eForm})
 
+def pessoa_config_post(request):
+    '''
+        @pessoa_config_post: View para salvar as configuracoes de uma pessoa
+    '''
+    pessoa = request.user.pessoa
+    form = ConfigPessoaForm(request.POST)
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.pessoa = pessoa
+        obj.save()
+        return HttpResponseRedirect(r("pessoas:pessoa_inicio"))   
+    else:
+        return render(request,"pessoa_config_desafio.html",{'form':form})
 def logar(request):
     #raise Exception("teste")
     if request.method == 'POST':
@@ -67,7 +92,14 @@ def logar(request):
             #verificar se a pessoa já fez as configuracoes
             #return HttpResponseRedirect(r("pessoas:pessoa_inicio"))
 
-            return HttpResponseRedirect(r("pessoas:pessoa_config"))
+            pessoa = request.user.pessoa
+
+            try:
+                config = ConfigPessoa.objects.get(pessoa=pessoa)
+                return HttpResponseRedirect(r("pessoas:pessoa_inicio"))                
+            except:
+                return HttpResponseRedirect(r("pessoas:pessoa_config"))
+
         else:
             return render(request, "login.html", {'"lform': form,'form':PessoaForm(),'uform':UserForm()})
     else:

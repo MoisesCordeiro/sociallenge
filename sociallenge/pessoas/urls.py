@@ -9,4 +9,7 @@ urlpatterns = patterns('sociallenge.pessoas.views',
 	url(r'^inicio/$', 'pessoa_inicio', name='pessoa_inicio'),
 	url(r'^config/$', 'pessoa_config', name='pessoa_config'),
 	url(r'^logar/$', 'logar', name='logar'),
+
+
+	url(r'^cadastro_endereco_modal/$', 'endereco_form_modal', name='endereco_form_modal'),
 )

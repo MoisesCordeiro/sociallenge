@@ -1,6 +1,7 @@
 #coding: utf-8
 from django.db import models
 from django.contrib.auth.models import User
+#from sociallenge.thumbs import ImageWithThumbsField
 # Create your models here.
 
 RELACIONAMENTO = (
@@ -26,6 +27,20 @@ class Pessoa(models.Model):
 
     user = models.OneToOneField(User,related_name='pessoa',null=True,blank=True)
 
+
+    cep = models.CharField(max_length=20,blank=True,null=True)
+    endereco = models.CharField(max_length=100,blank=True,null=True)
+    numero = models.CharField(max_length=10,blank=True,null=True)
+    complemento = models.CharField(max_length=100,blank=True,null=True)
+    bairro = models.CharField(max_length=100,blank=True,null=True)
+    cidade = models.CharField(max_length=100,blank=True,null=True)
+    estado = models.CharField(max_length=100,blank=True,null=True)
+
+
+
+
+
+
     @models.permalink
     def inicio(self):
         return ('pessoas:pessoa_inicio', (), {'pessoa_id': self.id})
@@ -43,7 +58,15 @@ INTERVALO = (
     ('5','5 dias'),
 )
 
+IMPACTO_SOCIAL = (
+    ('1','Sim'),
+    ('2','Não'),
+)
+
 class ConfigPessoa(models.Model):
-    caminho_foto = models.CharField(max_length=100,null=True,blank=True)
-    intervalo = models.CharField(max_length=1,choices=INTERVALO)
+    #foto = ImageWithThumbsField(upload_to=get_upload_path, sizes=((125,125),(40,40)),blank=True,null=True,verbose_name="Foto")
+    
+    #caminho_foto = models.CharField(max_length=100,null=True,blank=True)
+    intervalo = models.CharField(max_length=1,default='3',choices=INTERVALO)
     pessoa = models.ForeignKey(Pessoa,null=True,blank=True)
+    impacto_social = models.CharField(max_length=1,default='2',choices=IMPACTO_SOCIAL)
