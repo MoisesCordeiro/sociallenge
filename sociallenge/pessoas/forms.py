@@ -23,23 +23,18 @@ class PessoaForm(forms.ModelForm):
 class PessoaEnderecoForm(forms.ModelForm):
     class Meta:
         model = Pessoa
-        fields = ('cep','endereco','numero','complemento','bairro','cidade','estado',)
+        fields = ('cep','endereco','numero','complemento','bairro','cidade','uf',)
         widgets ={
-                  'cep'         : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Nome:'}),
-                  'endereco'    : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Sobrenome:'}),
-                  'numero'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Email:'}),
-                  'complemento' : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Nascimento:'}),
-                  'bairro'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Sobrenome:'}),
-                  'cidade'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Email:'}),
-                  'estado'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Nascimento:'}),
+                  'cep'         : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'CEP:'}),
+                  'endereco'    : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Endereço:'}),
+                  'numero'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Número:'}),
+                  'complemento' : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Complemento:'}),
+                  'bairro'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Bairro:'}),
+                  'cidade'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Cidade:'}),
+                  'uf'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'UF:'}),
 
 
         }
-
-
-
-
-
 
 
 

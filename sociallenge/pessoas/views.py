@@ -44,8 +44,50 @@ def endereco_form_modal(request):
     '''
         @endereco_form_modal: View para salvar o endereço da pessoa
     '''
-    form = PessoaEnderecoForm()
-    return render(request,"pessoa_endereco_modal.html",{'form':form})
+    if request.method == 'POST':
+        return endereco_post(request)
+    else:
+        form = PessoaEnderecoForm()
+        return render(request,"pessoa_endereco_modal.html",{'form':form})
+
+def endereco_post(request):
+    '''
+        @endereco_post: View para salvar o endereco de uma pessoa
+    '''
+    form = PessoaEnderecoForm(request.POST)
+    print "1"
+    if request.is_ajax():
+        print "2"
+        if form.is_valid():
+            print "3"
+            pessoa = request.user.pessoa
+            print "4"
+            pessoa.cep = request.POST.get('cep')
+            print "5"
+            pessoa.endereco = request.POST.get('endereco')
+            print "6"
+            pessoa.numero = request.POST.get('numero')
+            pessoa.complemento = request.POST.get('complemento')
+            pessoa.bairro = request.POST.get('bairro')
+            pessoa.cidade = request.POST.get('cidade')
+            pessoa.uf = request.POST.get('uf')
+            print "7"
+            pessoa.save()
+            print "8"
+             # Retornando para o Form que o formulario foi gravado com sucesso
+            return HttpResponse(simplejson.dumps({'status':'OK'}))                                                          
+        else:
+            print "error"
+            errors = form.errors
+            return HttpResponse(simplejson.dumps(errors)) 
+    else:
+        print "error"
+        pass
+        #if form.is_valid():
+        #    return render(request, "",{'form':form})
+        #obj = form.save()
+        #obj.save()
+        #return HttpResponseRedirect(r('')) 
 
 def pessoa_inicio(request):
     '''

@@ -35,13 +35,15 @@
             function(){
 
                 $('#id_impacto_social_0').on( 'click', function( e ){
+                    
+                    //document.getElementById("#id_impacto_social")[0].checked = true;
 
                     e.preventDefault();
                     var url_locais = "{% url 'pessoas:endereco_form_modal' %}";
                     $('#modal-cadastro_endereco').load( url_locais, function( e ){
                         $('#modal-cadastro_endereco').modal( 'show' );
                     });
-
+                    //
                 });
 
             });

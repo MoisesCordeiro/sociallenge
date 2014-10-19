@@ -34,7 +34,7 @@ class Pessoa(models.Model):
     complemento = models.CharField(max_length=100,blank=True,null=True)
     bairro = models.CharField(max_length=100,blank=True,null=True)
     cidade = models.CharField(max_length=100,blank=True,null=True)
-    estado = models.CharField(max_length=100,blank=True,null=True)
+    uf = models.CharField(max_length=100,blank=True,null=True)
 
 
 

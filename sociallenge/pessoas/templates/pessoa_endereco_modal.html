@@ -1,14 +1,78 @@
+<script>
+
+jQuery(document).ready(function(){
+        
+    $('#salvar-endereco').click(function (e) {
+        
+        e.preventDefault();
+        // Pegando os dados do formulario 
+        var frm = $('#endereco_form');         
+        // URL para requisição Post
+        var url_submit = frm.attr('action');
+        // Zerando Variavel e Serializando para enviar para a View
+        var dataForm = "";
+        var dataForm = frm.serialize();
+
+        
+        // Executando o Post por Ajax
+        $.ajax({
+            type: "POST",
+            url: url_submit,
+            data: dataForm,
+            dataType: "json",
+
+            success: function (json) {
+                // Percorrendo a lista recebida por JSON
+                $.each(json, function(key, value){                    
+                    // Verificando se o Formulario é valido      
+                                                    
+                    if(key == "status" && value == "OK"){
+                        // Exibindo Mensagem de Gravacao com Sucesso
+                        setTimeout(function(){ $("#modal-body").html("<h2 class='alert alert-warning'>local gravado com Sucesso</h2>"); }, 500);
+                        // Fechando o Modal e atualizando a Listagem conforme o Tipo de Exercicio
+                        listaBairros();
+                        $('#modal-cadastro_endereco').modal('hide');
+
+                    }else{
+                        
+                        if (key == '__all__') {
+                            $("#erro-geral").show();
+                            $("#erro-geral").text(value);
+                        }
+
+                        var field_id = '#id_'+key;
+                                        
+                        $(field_id).attr({title:value,'data-placement':"bottom"});
+                        $(field_id).tooltip("show" );   
+                    } 
+                 }); 
+                    
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                
+                $('#modal-cadastro_endereco').modal('hide');
+            }
+        });
+
+    });
+});
+
+</script>
+a
+
+
+
 
 <div id="mensagem-header" class="modal-header">
+    <h5>Cadastre o seu endereço</h5>
 </div>
 <div class="modal-body">       
     <div id="content-pagina">
 		<h4 id="erro-geral" class="alert alert-danger" style="display:none" ></h4>
-        <form id="bairro_form" class="form-horizontal" role="form" method="post">
+        <form id="endereco_form" class="form-horizontal" role="form" method="post" action="{% url 'pessoas:endereco_form_modal' %}">
             {% csrf_token %} 
             {% for field in form %} 
                 <div class="form-group">
-                    <label for="id_{{ field.name }}" class="col-sm-2 control-label"> {{field.label}}</label>
                     <div class="form-inline">
                         {% if field.errors %}
                             {{field}}
@@ -37,5 +101,5 @@
 </div>
 <div class="modal-footer">
     <a class="btn btn-danger btn-modal" data-dismiss="modal">Fechar</a>
-    <a class="btn btn-success btn-modal" id="salvar-bairro">Salvar</a>
+    <a class="btn btn-success btn-modal" id="salvar-endereco">Salvar</a>
 </div>
