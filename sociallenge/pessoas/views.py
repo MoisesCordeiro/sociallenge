@@ -130,10 +130,6 @@ def logar(request):
         if form.is_valid():
 
             login(request, form.get_user())
-
-            #verificar se a pessoa já fez as configuracoes
-            #return HttpResponseRedirect(r("pessoas:pessoa_inicio"))
-
             pessoa = request.user.pessoa
 
             try:
@@ -143,6 +139,6 @@ def logar(request):
                 return HttpResponseRedirect(r("pessoas:pessoa_config"))
 
         else:
-            return render(request, "login.html", {'"lform': form,'form':PessoaForm(),'uform':UserForm()})
+            return render(request, "login.html", {'lform': form,'form':PessoaForm(),'uform':UserForm()})
     else:
         raise Exception("sei la")
