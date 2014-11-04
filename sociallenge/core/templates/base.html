@@ -8,9 +8,10 @@
     <script src="{{ STATIC_URL }}js/jquery-ui-1.10.2.min.js"></script>
     
     <link rel="shortcut icon" href="../favicon.ico">
+    <link href="{{ STATIC_URL }}css/resetglobal.css" rel="stylesheet" type="text/css"  />
     <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css"  />
     <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css"  />
-    <link href="{{ STATIC_URL }}css/reseteblobal.css" rel="stylesheet" type="text/css"  />
+    
 
 </head>
 <body>
@@ -20,49 +21,38 @@
                 <div id="topo-logo">
                     <img id="logo" src= "{{STATIC_URL}}img/logo.png"/>    
                 </div>
-
-            {% if not user.pessoa %}
-                <div id="div-login">
-                    <form class="form-inline" method="POST" action="{% url 'pessoas:logar' %}">
-                        {% csrf_token %}        
-                        {{lform.non_field_errors}}  
-                        <p>{{lform.username}}{{lform.username.errors}}</p>
-                        <p>{{lform.password}}{{lform.password.errors}}
-                        <button type="submit" class="btn btn_login">Entrar</button></p>
-                    </form> 
-                </div>
-            {%else%}
-            {%endif%}
             </div>
         </div>
 
-        <div id="cadgratu">
-            <p>Cadastre-se gratuitamente!</p>
-        </div>
-
-        <div id="box">
-            <form class="form-inline" method="POST" action="{% url 'pessoas:pessoa_create' %}">
-                {% csrf_token %}        
-                {{form.non_field_errors}}   
-                
-                <p>{{form.nome}}{{form.nome.errors}}
-
-
-                &nbsp;&nbsp;&nbsp;{{form.sobrenome}}{{form.sobrenome.errors}}</p>
+        <center><a class="btn btn-primary" href="/login">Login</a></center>
+        <div id="div-centro">
+            <div id="cadgratu">
+                <p>Cadastre-se gratuitamente!</p>
+            </div>
+            <hr>
+            <div id="box">
+                <form class="form-inline" method="POST" action="{% url 'pessoas:pessoa_create' %}">
+                    {% csrf_token %}        
+                    {{form.non_field_errors}}   
                     
-                <p>{{form.email}}{{form.email.errors}}&nbsp;&nbsp;&nbsp;{{form.nascimento}}{{form.nascimento.errors}}</p>
-                <p><label>{{form.relacionamento.label}} :</label>{{form.relacionamento}}</p>{{form.relacionamento.errors}}
-                <p><label>{{form.genero.label}} :</label>{{form.genero}}</p>{{form.genero.errors}}
-                
-                <p>{{uform.password1}}{{uform.password1.errors}}
-                {{uform.password2}}{{uform.password2.errors}}</p>
-                <p><button type="submit" class="btn btn-success">Salvar</button></p>
-            </form> 
-        
+                    <p>{{form.nome}}{{form.nome.errors}}
 
-            <p id="area">Clicando em confirmar, você estará aceitando os <a href="{% url 'termos_condicoes' %}" target="_blank">Termos e Condições</a> e a <a href="{% url 'politica_privacidade' %}" target="_blank">Política de Privacidade</a> da Sociallenge.</p> 
+
+                    &nbsp;&nbsp;&nbsp;{{form.sobrenome}}{{form.sobrenome.errors}}</p>
+                        
+                    <p>{{form.email}}{{form.email.errors}}&nbsp;&nbsp;&nbsp;{{form.nascimento}}{{form.nascimento.errors}}</p>
+                    <p><label>{{form.relacionamento.label}} :</label>{{form.relacionamento}}</p>{{form.relacionamento.errors}}
+                    <p><label>{{form.genero.label}} :</label>{{form.genero}}</p>{{form.genero.errors}}
+                    
+                    <p>{{uform.password1}}{{uform.password1.errors}}
+                    {{uform.password2}}{{uform.password2.errors}}</p>
+                    <p><button type="submit" class="btn btn-success">Salvar</button></p>
+                </form> 
+            
+
+                <p id="area">Clicando em confirmar, você estará aceitando os <a href="{% url 'termos_condicoes' %}" target="_blank">Termos e Condições</a> e a <a href="{% url 'politica_privacidade' %}" target="_blank">Política de Privacidade</a> da Sociallenge.</p> 
+            </div>
         </div>
-
 </body>
 
     

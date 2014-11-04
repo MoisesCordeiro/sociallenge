@@ -55,25 +55,17 @@ def endereco_post(request):
         @endereco_post: View para salvar o endereco de uma pessoa
     '''
     form = PessoaEnderecoForm(request.POST)
-    print "1"
     if request.is_ajax():
-        print "2"
         if form.is_valid():
-            print "3"
             pessoa = request.user.pessoa
-            print "4"
             pessoa.cep = request.POST.get('cep')
-            print "5"
             pessoa.endereco = request.POST.get('endereco')
-            print "6"
             pessoa.numero = request.POST.get('numero')
             pessoa.complemento = request.POST.get('complemento')
             pessoa.bairro = request.POST.get('bairro')
             pessoa.cidade = request.POST.get('cidade')
             pessoa.uf = request.POST.get('uf')
-            print "7"
             pessoa.save()
-            print "8"
              # Retornando para o Form que o formulario foi gravado com sucesso
             return HttpResponse(simplejson.dumps({'status':'OK'}))                                                          
         else:
@@ -94,7 +86,12 @@ def pessoa_inicio(request):
         @pessoa_inicio: View para renderizar a página inicial de uma pessoa
     '''
     if request.user.pessoa:
-        return render(request,"pagina_inicial.html")
+        try:
+            config = ConfigPessoa.objects.get(pessoa=pessoa)
+            return render(request,"pagina_inicial.html")
+        except:
+            return HttpResponseRedirect(r("pessoas:pessoa_config"))
+        
     else:
         return HttpResponseRedirect("/")
 
