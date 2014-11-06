@@ -7,8 +7,8 @@
 </script>
     <title>SocialLenge</title>
 
-<a href="{% url 'socialauth_begin' 'facebook' %}">Login with Facebook</a>  
-<a href="{% url 'socialauth_begin' 'twitter' %}?{{ redirect_querystring }}">...</a>
+<!--<a href="{% url 'socialauth_begin' 'facebook' %}">Login with Facebook</a>  
+<a href="{% url 'socialauth_begin' 'twitter' %}?{{ redirect_querystring }}">...</a>-->
     <script src="{{ STATIC_URL }}js/jquery-latest.min.js"></script>
     <script src="{{ STATIC_URL }}js/jquery-2.0.0.min.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>        
@@ -27,7 +27,6 @@
   data-share="true"
   data-width="450"
   data-show-faces="true">
-  uaheuahe
 </div>
         <div id="centro">
             <div id="div-topo">
@@ -59,16 +58,10 @@
                     <p><label>{{form.genero.label}} :</label>{{form.genero}}</p>{{form.genero.errors}}
                     
 
-                <p>{{form.email}}{{form.email.errors}}&nbsp;&nbsp;&nbsp;{{form.nascimento}}{{form.nascimento.errors}}</p>
-                <p><label>{{form.relacionamento.label}} :</label>{{form.relacionamento}}</p>{{form.relacionamento.errors}}
-                <p><label>{{form.genero.label}} :</label>{{form.genero}}</p>{{form.genero.errors}}
-                
-                <p>{{uform.password1}}{{uform.password1.errors}}
-                {{uform.password2}}{{uform.password2.errors}}</p>
-                <p><button type="submit" class="btn btn-success">Salvar</button></p>
-
-            </form> 
-
+                    <p>{{uform.password1}}{{uform.password1.errors}}
+                    {{uform.password2}}{{uform.password2.errors}}</p>
+                    <p><button type="submit" class="btn btn-success">Salvar</button></p>
+                </form> 
 
                 <p id="area">Clicando em confirmar, você estará aceitando os <a href="{% url 'termos_condicoes' %}" target="_blank">Termos e Condições</a> e a <a href="{% url 'politica_privacidade' %}" target="_blank">Política de Privacidade</a> da Sociallenge.</p> 
             </div>
