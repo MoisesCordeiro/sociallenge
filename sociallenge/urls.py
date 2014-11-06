@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     url(r'^$', 'sociallenge.core.views.home', name='home'),
     #url(r'^','sociallenge.pessoas.views.pessoa_create', name='pessoa_create'),
     #url(r'^logar/$','sociallenge.pessoas.views.logar', name='logar'),
-    #url(r'login/$','django.contrib.auth.views.login',{"template_name":'login.html'}),
+    url(r'^login/$','django.contrib.auth.views.login',{"template_name":'login.html'}),
     url(r'^logout/','django.contrib.auth.views.logout_then_login',{'login_url': '/'}),
 
     url(r'^desafios/',include('sociallenge.desafios.urls', namespace='desafios')),

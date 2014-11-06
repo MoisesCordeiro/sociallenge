@@ -12,10 +12,10 @@ class PessoaForm(forms.ModelForm):
         model = Pessoa
         fields = ('email','nome','sobrenome','nascimento','relacionamento','genero')
         widgets ={
-        		  'nome'     		: forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Nome:'}),
-                  'sobrenome'     	: forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Sobrenome:'}),
-                  'email'     		: forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Email:'}),
-                  'nascimento'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Nascimento:'}),
+        		      'nome'     	      : forms.TextInput(attrs={'class':'form-control','size':18,'placeHolder':'Nome:'}),
+                  'sobrenome'       : forms.TextInput(attrs={'class':'form-control','size':18,'placeHolder':'Sobrenome:'}),
+                  'email'     		  : forms.TextInput(attrs={'class':'form-control','size':18,'placeHolder':'Email:'}),
+                  'nascimento'      : forms.TextInput(attrs={'class':'form-control','size':18,'placeHolder':'Nascimento:'}),
                   'relacionamento' 	: Select(attrs={'class':'form-control',}),
                   'genero' : Select(attrs={'class':'form-control'}),
         }
