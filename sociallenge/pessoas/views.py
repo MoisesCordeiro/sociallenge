@@ -93,10 +93,13 @@ def pessoa_inicio(request):
     '''
         @pessoa_inicio: View para renderizar a página inicial de uma pessoa
     '''
-    if request.user.pessoa:
-        return render(request,"pagina_inicial.html")
-    else:
-        return HttpResponseRedirect("/")
+    try:
+        if request.user.pessoa:
+            return render(request,"pagina_inicial.html")
+        else:
+            return HttpResponseRedirect("/")
+    except:
+         return render(request,"pagina_inicial.html")
 
 def pessoa_config(request):
     '''

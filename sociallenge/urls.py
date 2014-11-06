@@ -5,7 +5,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'sociallenge.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
+    url(r'', include('social_auth.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'sociallenge.core.views.home', name='home'),
     #url(r'^','sociallenge.pessoas.views.pessoa_create', name='pessoa_create'),

@@ -1,7 +1,14 @@
 <html>
 <head>
+<script type="text/javascript">
+   if (window.location.hash == '#_=_') {
+      window.location.hash = '';
+   }
+</script>
     <title>SocialLenge</title>
 
+<a href="{% url 'socialauth_begin' 'facebook' %}">Login with Facebook</a>  
+<a href="{% url 'socialauth_begin' 'twitter' %}?{{ redirect_querystring }}">...</a>
     <script src="{{ STATIC_URL }}js/jquery-latest.min.js"></script>
     <script src="{{ STATIC_URL }}js/jquery-2.0.0.min.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>        
@@ -14,6 +21,13 @@
 
 </head>
 <body>
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+  uaheuahe
+</div>
         <div id="centro">
             <div id="div-topo">
                 <img id="barra-topo" src= "{{STATIC_URL}}img/barra-topo.png"/>
@@ -57,6 +71,7 @@
                 <p>{{uform.password1}}{{uform.password1.errors}}
                 {{uform.password2}}{{uform.password2.errors}}</p>
                 <p><button type="submit" class="btn btn-success">Salvar</button></p>
+
             </form> 
         
 
