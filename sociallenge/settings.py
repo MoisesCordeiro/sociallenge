@@ -194,6 +194,8 @@ STATICFILES_DIRS = (
     ("css", "%s/css" % STATIC_ROOT),
     ("js", "%s/js" % STATIC_ROOT),
     ("fonts", "%s/fonts" % STATIC_ROOT),
+    ("less", "%s/less" % STATIC_ROOT),
+    ("scss", "%s/scss" % STATIC_ROOT),
 )
 
 TEMPLATE_LOADERS = (
