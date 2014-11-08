@@ -1,7 +1,15 @@
 {% extends 'base_inicial.html' %}
-
+<script type="text/javascript">
+   if (window.location.hash == '#_=_') {
+      window.location.hash = '';
+   }
+</script>
 {%block content %}
-
+<script type="text/javascript">
+   if (window.location.hash == '#_=_') {
+      window.location.hash = '';
+   }
+</script>
 <div class="bs-callout bs-callout-warning">
   <h4>Página inicial | {{user.pessoa.nome}}</h4>
 </div>

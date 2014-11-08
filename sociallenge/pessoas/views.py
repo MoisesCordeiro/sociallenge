@@ -85,15 +85,15 @@ def pessoa_inicio(request):
     '''
         @pessoa_inicio: View para renderizar a página inicial de uma pessoa
     '''
-    if request.user.pessoa:
-        try:
-            config = ConfigPessoa.objects.get(pessoa=pessoa)
+
+    try:
+        if request.user.pessoa:
             return render(request,"pagina_inicial.html")
-        except:
-            return HttpResponseRedirect(r("pessoas:pessoa_config"))
-        
-    else:
-        return HttpResponseRedirect("/")
+        else:
+            return HttpResponseRedirect("/")
+    except:
+         return render(request,"pagina_inicial.html")
+
 
 def pessoa_config(request):
     '''
