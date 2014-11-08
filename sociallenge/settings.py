@@ -53,6 +53,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+
 ROOT_URLCONF = 'sociallenge.urls'
 
 WSGI_APPLICATION = 'sociallenge.wsgi.application'
@@ -77,6 +78,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'pt-BR'
 
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -84,6 +86,15 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+LANGUAGES = (
+    ('en', u'English'),
+    ('pt-br', u'Portugues'),
+)
+LOCALE_PATHS = (
+    BASE_DIR+"/locale/",
+)
+
 
 
 # Static files (CSS, JavaScript, Images)

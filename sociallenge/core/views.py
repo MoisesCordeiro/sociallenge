@@ -3,9 +3,11 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import AuthenticationForm
 from sociallenge.pessoas.forms import PessoaForm,LoginForm,UserForm
+from sociallenge.settings import *
 # Create your views here.
 
 def home(request):
+	
 	return render(request,"base.html",{'form':PessoaForm(),'lform':AuthenticationForm(),'uform':UserForm})
 	
 def termos_condicoes(request):
