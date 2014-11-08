@@ -7,7 +7,8 @@ from sociallenge.pessoas.models import Pessoa,ConfigPessoa
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.core.urlresolvers import reverse as r
-from django.contrib.auth.forms import AuthenticationForm 
+from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import get_object_or_404
 
 def pessoa_create(request):
     '''
@@ -75,17 +76,11 @@ def endereco_post(request):
     else:
         print "error"
         pass
-        #if form.is_valid():
-        #    return render(request, "",{'form':form})
-        #obj = form.save()
-        #obj.save()
-        #return HttpResponseRedirect(r('')) 
 
 def pessoa_inicio(request):
     '''
         @pessoa_inicio: View para renderizar a página inicial de uma pessoa
     '''
-
     try:
         if request.user.pessoa:
             return render(request,"pagina_inicial.html")
@@ -119,10 +114,9 @@ def pessoa_config_post(request):
         return HttpResponseRedirect(r("pessoas:pessoa_inicio"))   
     else:
         return render(request,"pessoa_config_desafio.html",{'form':form})
-def logar(request):
-    #raise Exception("teste")
-    if request.method == 'POST':
 
+def logar(request):
+    if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
 
@@ -138,4 +132,15 @@ def logar(request):
         else:
             return render(request, "login.html", {'lform': form,'form':PessoaForm(),'uform':UserForm()})
     else:
-        raise Exception("sei la")
+        return HttpResponseRedirect(r("sociallenge.core.views.home")) 
+
+
+def profile(request,pessoa_id):
+    """
+        @view para renderizar o profile de uma pessoa
+    """
+    pessoa = get_object_or_404(Pessoa,id=pessoa_id)
+
+    #publicacoes
+
+    return render(request,"profile.html",{'pessoa':pessoa})
