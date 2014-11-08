@@ -1,0 +1,42 @@
+#div-topo
+{
+	width:100%;
+	height:50px;
+	background-color: #336666;
+}
+
+#menu
+{
+	float:right;
+}
+
+#link-inicio,#menu ul {
+    padding:0px;
+    margin:0px;
+    list-style:none;
+} 
+
+#menu ul li { 
+    display: inline; 
+}
+
+#link-inicio,#menu ul li a {
+    padding: 2px 10px;
+    display: inline-block;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    padding-top:13px;
+    padding-bottom: 16px;
+}
+
+#menu ul li a:hover
+{
+    background-color: white;
+    color:#3E3F3A;
+}
+
+#link-inicio a
+{
+	color:white;
+}
