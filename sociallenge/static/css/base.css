@@ -101,15 +101,14 @@ font-family: 'Lato', Calibri, Arial, sans-serif;
 
 #institucional p {
 	position: absolute;
-	top: 240px;
-	left: 200px;
-	font-size: 12pt;
-	
-}
+	top: 170px;
+	left: 50px;
+	font-size: 15pt;
+    width: 460px;
+    color: #336666;
+    font-weight: bolder;
+    text-align: justify;
 
-#institucional p:hover {
-	text-decoration: underline;
-	color: blue;
 }
 
 #box
