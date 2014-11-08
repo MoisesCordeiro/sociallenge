@@ -22,12 +22,12 @@
 <body>
    <div id="div-topo">
     <div id="link-inicio">
-        <a href="">Sociallenge</a>
+        <a href="{% url 'pessoas:pessoa_inicio' %}">Sociallenge</a>
     </div>
 
     <nav class="menu" id="menu">
         <ul>
-            <li><a href="{% url 'pessoas:profile' pessoa_id=user.pessoa.id %}">{{user.pessoa.nome}}</a></li>
+            <li><a href="{% url 'pessoas:profile' pessoa_id=user.pessoa.id %}">{{user.pessoa.nome|title}} {{user.pessoa.sobrenome|title}}</a></li>
             <li><a><i class="fa fa-cog"></i>&nbsp;Config</a></li>
             <li><a href="/logout/" id="btn-sair"><i class="fa fa-power-off"></i>&nbsp;Sair</a></li>
         </ul>
