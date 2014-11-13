@@ -8,7 +8,8 @@ urlpatterns = patterns('sociallenge.pessoas.views',
 	url(r'^$','pessoa_create', name='pessoa_create'),
 	url(r'^inicio/$', 'pessoa_inicio', name='pessoa_inicio'),
 	url(r'^config/$', 'pessoa_config_desafio', name='pessoa_config_desafio'),
-	url(r'^config/$', 'pessoa_configuracao', name='pessoa_configuracao'),
+	url(r'^configuracao/$', 'pessoa_configuracao', name='pessoa_configuracao'),
+	url(r'^save_configuracao/$', 'save_configuracao', name='save_configuracao'),
 
 	url(r'^logar/$', 'logar', name='logar'),
 

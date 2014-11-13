@@ -31,7 +31,7 @@ class PessoaEnderecoForm(forms.ModelForm):
                   'complemento' : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Complemento:'}),
                   'bairro'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Bairro:'}),
                   'cidade'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'Cidade:'}),
-                  'uf'      : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'UF:'}),
+                  'uf'          : forms.TextInput(attrs={'class':'form-control','size':17,'placeHolder':'UF:'}),
 
 
         }

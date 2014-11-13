@@ -1,3 +1,8 @@
+body
+{
+    background-color:#F0F0F0 ;
+    color: #47a3da;
+}
 #div-topo
 {
 	width:100%;
@@ -39,4 +44,12 @@
 #link-inicio a
 {
 	color:white;
+}
+
+#centro-inicio
+{
+    width:1000px;
+    height: 100%;
+    background-color: white;
+    margin:auto;
 }

@@ -1,0 +1,69 @@
+{% extends 'base_inicial.html' %}
+
+
+<script type="text/javascript">
+   if (window.location.hash == '#_=_') {
+      window.location.hash = '';
+   }
+</script>
+
+{%block content %}
+<script type="text/javascript">
+   if (window.location.hash == '#_=_') {
+      window.location.hash = '';
+   }
+</script>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/configuracao_pessoa.css" />
+<div id="title-configuracao">
+	<h2>Configurações</h2>	
+</div>
+
+
+
+<br><br><br>
+<h4>Intervalo dos desafios</h4>
+<hr>
+
+
+<form class="form-inline" method="POST" action="{% url 'pessoas:save_configuracao' %}">
+    {% csrf_token %}        
+    {{form.non_field_errors}}
+    
+    <div id="div-desafios">
+        <p><h5>Escolha o intervalo entre os desafios</h5>
+        {{form.intervalo}}{{form.intervalo.errors}}</p>
+    </div>
+
+    <div id="div-impacto">
+        <h5>Participar de impacto social?</h5>
+        {{form.impacto_social}}{{form.impacto_social.errors}}
+    </div>
+    <div id="rodape" class="modal-footer">
+        <center><button id="btn-salvar" type="submit" class="btn btn_login">Salvar</button></center>
+    </div>
+</form> 
+
+<h4>Endereço</h4>
+<hr>
+
+<form class="form-inline" method="POST" action="{% url 'pessoas:save_configuracao' %}">
+    {% csrf_token %}        
+    {{eform.non_field_errors}}
+
+    <div id="div-impacto">
+        {{eform.cep}}{{eform.cep.errors}}
+        {{eform.endereco}}{{eform.endereco.errors}}
+        {{eform.numero}}{{eform.numero.errors}}
+        {{eform.complemento}}{{eform.complemento.errors}}
+        {{eform.bairro}}{{eform.bairro.errors}}
+        {{eform.cidade}}{{eform.cidade.errors}}
+        {{eform.uf}}{{eform.uf.errors}}
+    </div>
+
+    <div id="rodape" class="modal-footer">
+        <center><button id="btn-salvar" type="submit" class="btn btn_login">Salvar</button></center>
+    </div>
+</form> 
+
+
+{%endblock%}

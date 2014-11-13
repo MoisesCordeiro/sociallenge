@@ -10,32 +10,27 @@
     <link rel="shortcut icon" href="../favicon.ico">
     <link href="{{ STATIC_URL }}css/resetglobal.css" rel="stylesheet" type="text/css"  />
     <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css"  />
-    <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css"  />
+    <link href="{{ STATIC_URL }}css/base_login.css" rel="stylesheet" type="text/css"  />
     
 
 </head>
 <body>
-        <div id="centro">
-            <div id="div-topo">
-                <img id="barra-topo" src= "{{STATIC_URL}}img/barra-topo.png"/>
-                <div id="topo-logo">
-                    <img id="logo" src= "{{STATIC_URL}}img/logo.png"/>    
-                </div>
-            </div>
-        </div>
-        
 
-	    <div id="box-login">
+    <div id="logo">
+        <img id="logo" src= "{{STATIC_URL}}img/logotipo.png"/>
+    </div>        
+
+	    <div id="box">
 	        <form class="form-horizontal form" method="post" enctype="multipart/form-data">    
 				{%csrf_token%}
 				<center>
-					<p>Email:{{form.username}}</p>
-					<p>Senha:{{form.password}}</p> 
+					<p>Email:</p>{{form.username}}<br/>
+					<p>Senha:</p>{{form.password}} 
 				</center>
 
 				<center>
 					<button class="btn btn-default" type="submit" id="button">Entrar</button>
-					<a class="btn btn-primary">Entrar com o Facebook</a>
+					<!--<a class="btn btn-primary">Entrar com o Facebook</a>-->
 				</center>
 			 </form>
 	    </div>

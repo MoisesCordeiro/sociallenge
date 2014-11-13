@@ -10,6 +10,14 @@ from django.core.urlresolvers import reverse as r
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import get_object_or_404
 
+
+def get_pessoa(request):
+    '''
+        @get_pessoa: View para buscar uma pessoa
+    '''
+    pessoa = get_object_or_404(Pessoa,id=request.user.pessoa.id)
+    return pessoa
+
 def pessoa_create(request):
     '''
         @pessoa_create: View para definir se é GET ou POST na criação de uma pessoa
@@ -19,7 +27,7 @@ def pessoa_create(request):
         return pessoa_create_post(request) 
     else:
         lform = AuthenticationForm()
-        return render(request,"login.html",{'form':PessoaForm(),'lform':lform})
+        return render(request,"cadastro.html",{'form':PessoaForm(),'uform':UserForm()})
 
 def pessoa_create_post(request):
     '''
@@ -37,9 +45,9 @@ def pessoa_create_post(request):
         obj.save()
         user = authenticate(username=user.username,password=request.POST['password1'])
         login(request, user)
-        return HttpResponseRedirect(r('pessoas:pessoa_config'))
+        return HttpResponseRedirect(r('pessoas:pessoa_config_desafio'))
     else:
-        return render(request,"login.html",{'form':form,'lform':LoginForm(),'uform':uform})
+        return render(request,"cadastro.html",{'form':form,'lform':LoginForm(),'uform':uform})
 
 def endereco_form_modal(request):
     '''
