@@ -6,24 +6,23 @@
 {% endblock head %}
 
 {% block body %}
-  <h1 class="logo"><a href="{% url 'home' %}">Sociallenge</a></h1>
+  <div id="logo">
+        <img id="logo" src= "{{STATIC_URL}}img/logotipo.png"/>
+  </div>
+  <br/>
   <div class="signup">
     <h2>{% trans 'Cadastre-se na Sociallenge' %}</h2>
     <form action="{% url 'signup' %}" method="post" role="form">
       {% csrf_token %}
       {% for field in form.visible_fields %}
         <div class="form-group{% if field.errors %} has-error{% endif %}">
-          <label for="{{ field.label }}">{{ field.label }}</label>
           {{ field }}
-          {% if field.help_text %}
-            <span class="help-block">{{ field.help_text|safe }}</span>
-          {% endif %}
           {% for error in field.errors %}
             <label class="control-label">{{ error }}</label>
           {% endfor %}
         </div>
       {% endfor %}
-      <button type="submit" class="btn btn-primary btn-lg">{% trans 'Create an account' %}</button>
+      <button type="submit" class="btn btn-primary btn-lg">{% trans 'Cadastre-se' %}</button>
     </form>
   </div>
 {% endblock body %}
