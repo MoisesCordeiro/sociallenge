@@ -1,7 +1,14 @@
 body {
   background-color: #006389;
+  background: url(../../static/img/background_seungda_tela.jpg);
 }
 
+#logo
+{
+  width:180px;
+  height: 140px;
+  margin:auto;
+}
 .logo {
   margin: 0;
   font-size: 3em;
@@ -23,7 +30,7 @@ body {
 
 .signup {
   background-color: #f6f6f6;
-  width: 70%;
+  width: 500px;
   border-radius: 7px;
   margin: 10px auto 0;
 }
@@ -38,4 +45,9 @@ body {
 
 .signup h2 {
   margin: 0;
+}
+
+#id_period,#id_impacto_social
+{
+    width:200px;
 }

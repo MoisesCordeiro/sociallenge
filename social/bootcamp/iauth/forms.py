@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from bootcamp.settings import ALLOWED_SIGNUP_DOMAINS
 from bootcamp.iauth.models import Profile
+from django.forms.widgets import Select
 
 def SignupDomainValidator(value):
     if '*' not in ALLOWED_SIGNUP_DOMAINS:
@@ -41,19 +42,23 @@ def UniqueUsernameIgnoreCaseValidator(value):
 class PeriodForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['period','impacto_social']    
+        fields = ['period','impacto_social']
+        widgets = {
+            'period': Select(attrs={'class':'form-control',}),
+            'impacto_social': Select(attrs={'class':'form-control',}),
+        }    
 
 
 class SignUpForm(forms.ModelForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}),
+    username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeHolder':'Usuario'}),
         max_length=30,
         required=True,
         help_text='Usernames may contain <strong>alphanumeric</strong>, <strong>_</strong> and <strong>.</strong> characters')
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
-    confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}), 
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control','placeHolder':'Senha'}))
+    confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control','placeHolder':'Confirme a senha'}), 
         label="Confirm your password",
         required=True)
-    email = forms.CharField(widget=forms.EmailInput(attrs={'class':'form-control'}), 
+    email = forms.CharField(widget=forms.EmailInput(attrs={'class':'form-control','placeHolder':'Email'}), 
         required=True,
         max_length=75)
 

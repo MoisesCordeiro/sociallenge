@@ -3,7 +3,9 @@
   <link href="{{ STATIC_URL }}css/signup.css" rel="stylesheet">
 {% endblock head %}
 {% block body %}
-  <h1 class="logo"><a href="{% url 'home' %}">Sociallenge</a></h1>
+  <div id="logo">
+        <a href="{% url 'home' %}"><img id="logo" src= "{{STATIC_URL}}img/logotipo.png"/></a>
+  </div>
   <div class="signup">
     <h2>Escolha o periodo</h2>
     <form action="" method="post" role="form">

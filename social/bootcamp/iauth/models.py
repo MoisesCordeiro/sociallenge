@@ -26,7 +26,7 @@ class Profile(models.Model):
     location = models.CharField(max_length=50, null=True, blank=True)
     url = models.CharField(max_length=50, null=True, blank=True)
     job_title = models.CharField(max_length=50, null=True, blank=True)
-    period = models.CharField(max_length=1,default='3',choices=INTERVALO)
+    period = models.CharField(max_length=1,default='3',choices=INTERVALO,verbose_name="Intervalo dos desafios")
     impacto_social = models.CharField(max_length=1,default='2',choices=IMPACTO_SOCIAL)
     #reputation = models.IntegerField(default=0)
     #language = models.CharField(max_length=5, default='en')
