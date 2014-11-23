@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>SocialLenge</title>
+
+    <script src="{{ STATIC_URL }}js/jquery-latest.min.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery-2.0.0.min.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>        
+    <script src="{{ STATIC_URL }}js/jquery-ui-1.10.2.min.js"></script>
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link href="{{ STATIC_URL }}css/resetglobal.css" rel="stylesheet" type="text/css"  />
+    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css"  />
+    <link href="{{ STATIC_URL }}css/base_login.css" rel="stylesheet" type="text/css"  />
+    
+
+</head>
+<body>
+
+    <div id="logo">
+        <img id="logo" src= "{{STATIC_URL}}img/logotipo.png"/>
+    </div>        
+    <div id="box">
+
+	    <form method="post" action="{% url 'login' %}" role="form">
+        {% csrf_token %}
+	        <div class="form-group{% if form.username.errors %} has-error{% endif %}">
+	          <label for="username" id="id_label_username">Login</label>
+	          <input type="text" class="form-control" id="username" name="username">
+	          {% for error in form.username.errors %}
+	            <label class="control-label">{{ error }}</label>
+	          {% endfor %}
+	        </div>
+	        <div class="form-group{% if form.password.errors %} has-error{% endif %}">
+	          <label for="password" id="id_label_password">Senha</label>
+	          <input type="password" class="form-control" id="password" name="password">
+	          {% for error in form.password.errors %}
+	            <label class="control-label">{{ error }}</label>
+	          {% endfor %}
+	        </div>
+	        <div class="form-group">
+	          <button type="submit" class="btn btn-default">Entrar</button>
+	          <a href="{% url 'signup' %}" class="btn btn-link">Cadastre-se!</a>
+	        </div>
+      </form>
+    </div>
+</body>
+
+    
+
+</html>
