@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from bootcamp.core.forms import ProfileForm, ChangePasswordForm
 from django.contrib import messages
 from django.conf import settings as django_settings
-#from PIL import Image
+from PIL import Image
 import os
 
 def home(request):
@@ -96,17 +96,18 @@ def upload_picture(request):
         with open(filename, 'wb+') as destination:
             for chunk in f.chunks():
                 destination.write(chunk)    
-        #im = Image.open(filename)
+        im = Image.open(filename)
         width, height = im.size
         if width > 350:
             new_width = 350
             new_height = (height * 350) / width
             new_size = new_width, new_height
-            #im.thumbnail(new_size, Image.ANTIALIAS)
-            #im.save(filename)
+            im.thumbnail(new_size, Image.ANTIALIAS)
+            im.save(filename)
         return redirect('/settings/picture/?upload_picture=uploaded')
     except Exception, e:
         return redirect('/settings/picture/')
+
 
 @login_required
 def save_uploaded_picture(request):
@@ -117,11 +118,11 @@ def save_uploaded_picture(request):
         h = int(request.POST.get('h'))
         tmp_filename = django_settings.MEDIA_ROOT + '/profile_pictures/' + request.user.username + '_tmp.jpg'
         filename = django_settings.MEDIA_ROOT + '/profile_pictures/' + request.user.username + '.jpg'
-        #im = Image.open(tmp_filename)
-        #cropped_im = im.crop((x, y, w+x, h+y))
-        #cropped_im.thumbnail((200, 200), Image.ANTIALIAS)
-        #cropped_im.save(filename)
-        #os.remove(tmp_filename)
+        im = Image.open(tmp_filename)
+        cropped_im = im.crop((x, y, w+x, h+y))
+        cropped_im.thumbnail((200, 200), Image.ANTIALIAS)
+        cropped_im.save(filename)
+        os.remove(tmp_filename)
     except Exception, e:
         pass
     return redirect('/settings/picture/')
