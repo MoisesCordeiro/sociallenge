@@ -6,6 +6,7 @@ from bootcamp.articles.forms import ArticleForm
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from bootcamp.decorators import ajax_required
+import markdown
 from django.template.loader import render_to_string
 
 def _articles(request, articles):
@@ -93,7 +94,7 @@ def preview(request):
             content = request.POST.get('content')
             html = 'Nothing to display :('
             if len(content.strip()) > 0:
-                html = content
+                html = markdown.markdown(content, safe_mode='escape')
             return HttpResponse(html)
         else:
             return HttpResponseBadRequest()

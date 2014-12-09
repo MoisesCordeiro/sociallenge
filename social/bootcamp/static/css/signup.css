@@ -1,0 +1,53 @@
+body {
+  background-color: #006389;
+  background: url(../../static/img/background_seungda_tela.jpg);
+}
+
+#logo
+{
+  width:180px;
+  height: 140px;
+  margin:auto;
+}
+.logo {
+  margin: 0;
+  font-size: 3em;
+  font-weight: 200;
+  font-family: "Audiowide", cursive;
+  text-align: center;
+  text-shadow: 1px 1px 0 #333333;
+  line-height: 70px;
+}
+
+.logo a {
+  color: #92c35e;
+}
+
+.logo a:hover, .logo a:focus {
+  color: #92c35e;
+  text-decoration: none;
+}
+
+.signup {
+  background-color: #f6f6f6;
+  width: 500px;
+  border-radius: 7px;
+  margin: 10px auto 0;
+}
+
+.signup {
+  padding: 30px 20px;
+}
+
+.signup form {
+  margin-top: 20px;
+}
+
+.signup h2 {
+  margin: 0;
+}
+
+#id_period,#id_impacto_social
+{
+    width:200px;
+}

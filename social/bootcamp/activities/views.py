@@ -25,6 +25,7 @@ def last_notifications(request):
     return render(request, 'activities/last_notifications.html', {'notifications': notifications})
 
 @login_required
+@ajax_required
 def check_notifications(request):
     user = request.user
     notifications = Notification.objects.filter(to_user=user, is_read=False)[:5]
