@@ -29,10 +29,11 @@ body
     padding-right: 1.3em;
     border-radius: 10px;
     box-shadow: 0px 1px 3px #CCC;
-    width:290px;
-    height: 200px;
+    width:330px;
+    height: 220px;
     margin:auto;
     margin-top: 50px;
+    opacity: 0.7;
 }
 
 #id_username,#id_password{
@@ -53,10 +54,17 @@ body
     -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    opacity: 1;
 }
 #id_username,#id_password
 {
     width:130px;
     margin-right: 8px;
     margin-top: 7px;
+}
+
+#id_label_username,#id_label_password
+{
+    margin-top: 10px;
+    font-size: 18px;
 }
