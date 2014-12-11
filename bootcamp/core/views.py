@@ -15,7 +15,6 @@ def home(request):
     if request.user.is_authenticated():
         return feeds(request)
     else:
-        
         return render(request, 'core/entrada.html')
 
 @login_required

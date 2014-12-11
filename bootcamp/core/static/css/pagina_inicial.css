@@ -3,8 +3,23 @@ body
 
 }
 
+.container
+{
+	width:900px;
+}
 #menu-topo
 {
 
 	background-color: #003333;
+	width:100%;
+}
+
+#logo-topo
+{
+	width:130px;
+	height: 100px;
+	float:left;
+	position:absolute;
+	top:0;
+	margin-top: 20px;
 }
