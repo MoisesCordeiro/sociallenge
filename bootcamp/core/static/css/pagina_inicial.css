@@ -11,7 +11,10 @@ body
 {
 
 	background-color: #003333;
-	width:100%;
+	width:94%;
+	margin-left: 112px;
+	top:20px;
+	z-index: 1;
 }
 
 #logo-topo
@@ -21,5 +24,6 @@ body
 	float:left;
 	position:absolute;
 	top:0;
-	margin-top: 20px;
+	top: 2px;
+	z-index: 2;
 }
