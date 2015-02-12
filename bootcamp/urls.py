@@ -25,4 +25,8 @@ urlpatterns = patterns('',
     url(r'^iauth/', include('bootcamp.iauth.urls', namespace='iauth')),
     url(r'^(?P<username>[^/]+)/$', 'bootcamp.core.views.profile', name='profile'),
     url(r'^i18n/', include('django.conf.urls.i18n', namespace='i18n')),
+
+
+    url(r'^administrativo/', include('bootcamp.administrativo.urls',namespace="administrativo")),
+
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

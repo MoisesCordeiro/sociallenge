@@ -11,6 +11,7 @@ SECRET_KEY = '%kfpbpq)y*j3bsi3cl@(7l^sut(1=5*6cn^eg_trr4r+bfgssp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
 TEMPLATE_DEBUG = DEBUG
 
 DATABASES = {
@@ -32,6 +33,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'bootcamp.administrativo',
     'bootcamp.activities',
     'bootcamp.articles',
     'bootcamp.iauth',

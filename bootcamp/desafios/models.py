@@ -20,3 +20,4 @@ class Desafio(models.Model):
 	descricao = models.CharField(max_length=100)
 	nivel = models.CharField(max_length=1, choices=NIVEL)
 	tipo = models.CharField(max_length=1,choices=TIPO)
+	#tempo = models.IntegerField()	
